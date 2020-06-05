@@ -77,6 +77,12 @@ and database name which we had created same time.
 	spring.datasource.username=root
 	spring.datasource.password=root
 
+**Authentication**
+
+WE need to authorize or get permission through **google cloud SDK shell** by this commond
+
+		gcloud auth application-default login
+
 **Run Application**
 
 Now, we are good and ready to test our application. So to save or fetch user, I have created three api which is given below:
