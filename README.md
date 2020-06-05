@@ -64,4 +64,23 @@ The latest non-GA Maven artifacts for the project are only available in the Spri
 
 Now we are able to make MySQL connection from you project to GCP. 
 
- 
+**Application.properties**
+
+Needs to mention the sql configuration in applicaiton.properties. Here **instance-connection-name** is that whose we create a project there would be mentioned connection name.
+and database name which we had created same time. 
+
+	spring.cloud.gcp.sql.instance-connection-name= vikashmart:asia-south1:mysql-demo-instance
+	spring.cloud.gcp.sql.database-name=vikashmart
+	
+	spring.jpa.hibernate.ddl-auto=create
+	
+	spring.datasource.username=root
+	spring.datasource.password=root
+
+**Run Application**
+
+Now, we are good and ready to test our application. So to save or fetch user, I have created three api which is given below:
+	
+	Post: 'api/user'			// To save user with username and password 
+	Get : 'api/user/{username}'	// to find user by username
+	Get : 'api/user' // To find all user
