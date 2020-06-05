@@ -10,7 +10,7 @@ First we create project in spring boot and Java8 through [start.spring.io](start
 * Spring Web
 * Spring Data JPA
 
-## How to User MYSQL on GCP
+## MYSQL - Google Cloud Platform
 
 Here we are going to use MySQL server on Google-Cloud-Platform. As you know GCP is very popular and famous platform to use there project.
 So we will use to store SQL server on GCP. for that, we need to create a account on GCP and create a project. You can get the account with
@@ -90,3 +90,32 @@ Now, we are good and ready to test our application. So to save or fetch user, I 
 	Post: 'api/user'			// To save user with username and password 
 	Get : 'api/user/{username}'	// to find user by username
 	Get : 'api/user' // To find all user
+	
+## Storage - Google Cloud Platform
+
+Now, We are going to store or fetch file from Google Cloud Platform. To use storage add cloud dependency.
+
+	<!-- Add CloudStorage Starter for storage -->
+		<dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-gcp-starter-storage</artifactId>
+		</dependency>
+		
+After add dependency we need to user resource object to get or store the file on GCP.
+
+	@Value("gs://vikashmart-storage/testing/filename")
+	private Resource gcsResource; 
+	
+**To get The file**
+
+	StreamUtils.copyToString(
+				this.gcsResource.getInputStream(),
+				Charset.defaultCharset()) + "\n";
+				
+It will return string.
+
+**To Update The file**
+
+	try (OutputStream os = ((WritableResource) this.gcsResource).getOutputStream()) {
+			os.write(data.getBytes());
+		}
