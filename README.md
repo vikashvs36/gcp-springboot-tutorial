@@ -1,4 +1,4 @@
-# GCP SPRINGBOOT TUTORIAL
+# GOOGLE CLOUD PLATFORM SPRINGBOOT TUTORIAL
 
 Now, we are going to learn about GCP (Google Cloud Platform). There are multiple products available in GCP which can be use in several
 applications. here we will see GCP SQL, Storage, PUB/Sub and all. Let start:
